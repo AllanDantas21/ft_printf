@@ -1,8 +1,10 @@
 NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_print_char.c ft_printf.c ft_print_decimal.c ft_print_string.c \
-       ft_print_percent.c main.c
+SRCS = ft_print_char.c ft_printf.c \
+       ft_print_decimal.c ft_print_string.c \
+       ft_print_percent.c ft_itoa_base.c main.c \
+       ft_sizenum.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
 
