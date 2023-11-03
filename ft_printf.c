@@ -1,5 +1,4 @@
-#include "libft.h"
-#include "stdarg.h"
+#include "printf.h"
 
 static	print_fmt(char arg, va_list ap)
 {
@@ -9,7 +8,7 @@ static	print_fmt(char arg, va_list ap)
 	if (arg == 'c')
 		print_char(va_arg(ap, int));
 	if (arg == 'd')
-		print_integer(va_arg(ap, int));
+		print_decimal(va_arg(ap, int));
 	if (arg == 's')
 		print_string(va_arg(ap, char *));
 	if (arg == 'p')
