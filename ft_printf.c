@@ -8,7 +8,7 @@ static int print_fmt(char arg, va_list ap)
 	if (arg == 'c')
 		count += print_char(va_arg(ap, int));
 	if (arg == 'd')
-		count += print_decimal(va_arg(ap, int));
+		count += print_decimal(va_arg(ap, signed long));
 	if (arg == 's')
 		count += print_string(va_arg(ap, char *));
 	if (arg == 'p')
@@ -18,9 +18,9 @@ static int print_fmt(char arg, va_list ap)
 	if (arg == 'u')
 		return 0;
 	if (arg == 'x')
-		return 0;
+		count += print_hexa(va_arg(ap, unsigned int));
 	if (arg == 'X')
-		return 0;
+		count += print_hexa_upper(va_arg(ap, unsigned int));
 	if (arg == '%')
 		count += print_percent();
 	return (count);

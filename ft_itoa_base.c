@@ -1,6 +1,6 @@
 #include "printf.h"
 
-char	*ft_itoa_base(int n, int base, char* chr)
+char	*itoa_base(int n, int base, char* chr)
 {
 	char	*str;
 	long	nb;
