@@ -22,7 +22,7 @@ static int print_fmt(char arg, va_list ap)
 	if (arg == 'X')
 		return 0;
 	if (arg == '%')
-		return 0;
+		count += print_percent();
 	return (count);
 }
 
