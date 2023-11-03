@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "printf.h"
 
 int	print_string(char *str)
 {
@@ -6,6 +6,6 @@ int	print_string(char *str)
 
 	counter = 0;
 	while (str[counter] != '\0')
-		write(1, str[counter++], 1);
+		write(1, &str[counter++], 1);
 	return (counter);
 }
