@@ -9,4 +9,5 @@ int	main(void)
 	ft_printf("printando percento: %%\n");
 	ft_printf("printando hexa_lower: %x %x\n", 42, 1000);
 	ft_printf("printando hexa_upper: %X %X\n", 42, 1000);
+	ft_printf("printando unsigned: %u %u", 42, -100);
 }

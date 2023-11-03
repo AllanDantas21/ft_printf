@@ -16,7 +16,7 @@ static int print_fmt(char arg, va_list ap)
 	if (arg == 'i')
 		return (0);
 	if (arg == 'u')
-		return 0;
+		count += print_unsigned(va_arg(ap, unsigned int));
 	if (arg == 'x')
 		count += print_hexa(va_arg(ap, unsigned int));
 	if (arg == 'X')

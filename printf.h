@@ -13,5 +13,6 @@ char    *itoa_base(int n, int base, char* chr);
 int    	sizenum_base(long n, int base);
 int     print_hexa(unsigned int n);
 int     print_hexa_upper(unsigned int n);
+int     print_unsigned(unsigned int n);
 
 #endif
