@@ -12,9 +12,9 @@ static int print_fmt(char arg, va_list ap)
 	if (arg == 's')
 		count += print_string(va_arg(ap, char *));
 	if (arg == 'p')
-		return (0);
+		count += print_address(va_arg(ap, unsigned long));
 	if (arg == 'i')
-		return (0);
+		count += print_integer(va_arg(ap, signed long));
 	if (arg == 'u')
 		count += print_unsigned(va_arg(ap, unsigned int));
 	if (arg == 'x')
