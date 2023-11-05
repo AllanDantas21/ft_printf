@@ -8,7 +8,7 @@ int	print_address(void *p)
 	
 	adress = (unsigned long)p;
 	counter = print_string("0x");
-	str = itoa_base(adress, 16, "0123456789abcdef");
+	str = utoa_base(adress, 16, "0123456789abcdef");
 	counter += print_string(str);
 	free(str);
 	return (counter);
