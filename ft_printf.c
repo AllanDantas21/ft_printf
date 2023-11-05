@@ -12,7 +12,7 @@ static int print_fmt(char arg, va_list ap)
 	if (arg == 's')
 		count += print_string(va_arg(ap, char *));
 	if (arg == 'p')
-		count += print_address(va_arg(ap, unsigned int));
+		count += print_address(va_arg(ap, void *));
 	if (arg == 'i')
 		count += print_integer(va_arg(ap, signed int));
 	if (arg == 'u')
