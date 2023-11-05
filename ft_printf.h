@@ -17,5 +17,4 @@ int     print_hexa_upper(unsigned int n);
 int     print_unsigned(unsigned long n);
 int     print_address(unsigned long p);
 
-
 #endif

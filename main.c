@@ -48,5 +48,8 @@ int	main(void)
 	ft_printf("printando hexa_upper: %X %X\n", 42, 1000);
 	ft_printf("printando unsigned: %u %u\n", 42, -100);
 	printf("printando ponteiro: %p\n", p);
-	ft_printf("printando ponteiro: %p", p);
+	ft_printf("printando ponteiro: %p\n", p);
+
+
+	ft_printf("PRINTANDO HEX NEGATIVE: %x ", -42);
 }

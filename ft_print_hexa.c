@@ -7,8 +7,19 @@ int	print_hexa(unsigned int n)
 	
 	counter = 0;
 	str = itoa_base(n, 16, "0123456789abcdef");
-	counter = sizenum_base(n, 16);
-	print_string(str);
+	counter = print_string(str);
 	free(str);
 	return(counter);
+}
+
+int     print_hexa_upper(unsigned int n)
+{
+	int     counter;
+	char    *str;
+	
+	counter = 0;
+	str = itoa_base(n, 16, "0123456789ABCDEF");
+        counter = print_string(str);
+	free(str);
+	return (counter);
 }
