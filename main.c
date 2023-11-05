@@ -51,5 +51,8 @@ int	main(void)
 	ft_printf("printando ponteiro: %p\n", p);
 
 
-	ft_printf("PRINTANDO HEX NEGATIVE: %x ", -42);
+	ft_printf("PRINTANDO HEX NEGATIVE: %x\n ", -42);
+
+	ft_printf("teste 0 em pointer-> %p\n", 0); 
+	printf("teste 0 em pointer-> %p\n", (void*)0);
 }
