@@ -1,6 +1,32 @@
 #include "ft_printf.h"
 
-char	*itoa_base(int n, int base, char* chr)
+static long	handle_negative(long *value)
+{
+    if (*value < 0)
+    {
+                *value = -*value;
+		return (1);
+    }
+    return (0);
+}
+
+static void	fill_itoa(int nb, char *str, int base, char *chr, int len)
+{
+	str[len] = '\0';
+       	while (len--)
+        {
+                str[len] = chr[(nb % base)];
+                nb /= base;
+        }
+}
+
+static void	add_sign(char *str, int sign)
+{
+	if (sign == 1)
+		str[0] = '-';
+}
+
+char	*itoa_base(int n, int base, char *chr)
 {
 	char	*str;
 	long	nb;
@@ -8,23 +34,12 @@ char	*itoa_base(int n, int base, char* chr)
 	int		len;
 
 	nb = n;
-	sign = 0;
 	len = sizenum_base(nb, base);
-	if (nb < 0)
-	{
-		sign = 1;
-		nb = -nb;
-	}
+	sign = handle_negative(&nb);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	while (len--)
-	{
-		str[len] = chr[(nb % base)];
-		nb /= base;
-	}
-	if (sign == 1)
-		str[0] = '-';
+	fill_itoa(nb, str, base, chr, len);
+	add_sign(str, sign);
 	return (str);
 }
