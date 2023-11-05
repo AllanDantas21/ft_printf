@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_print_char.c ft_printf.c \
        ft_print_decimal.c ft_print_string.c \
@@ -25,7 +25,4 @@ fclean: clean
 
 RE: fclean name
 
-cc: $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS)
-
-.PHONY: all clean fclean cc
+.PHONY: all clean fclean 
