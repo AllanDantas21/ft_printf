@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int      sizenum_base_u(unsigned long n, int base)
+static int      sizenum_base_u(unsigned long long n, int base)
 {
         int     count;
 
@@ -15,13 +15,13 @@ static int      sizenum_base_u(unsigned long n, int base)
         return (count);
 }
 
-char	*utoa_base(unsigned int n, int base, char* chr)
+char	*utoa_base(unsigned long long n, int base, char* chr)
 {
-	char	*str;
+	char		*str;
 	unsigned long	nb;
 	int		len;
 
-	nb = (unsigned long)n;
+	nb = (unsigned long long)n;
 	len = sizenum_base_u(nb, base);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)

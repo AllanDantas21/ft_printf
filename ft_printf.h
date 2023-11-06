@@ -16,6 +16,6 @@ int     print_hexa(unsigned int n);
 int     print_hexa_upper(unsigned int n);
 int     print_unsigned(unsigned long n);
 int     print_address(void *p);
-char    *utoa_base(unsigned int n, int base, char* chr);
+char    *utoa_base(unsigned long long n, int base, char* chr);
 
 #endif
