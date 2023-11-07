@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-static int print_fmt(char arg, va_list ap)
+static int	print_fmt(char arg, va_list ap)
 {
- 	int	count;
+	int	count;
 
 	count = 0;
 	if (arg == 'c')
@@ -27,7 +27,7 @@ static int print_fmt(char arg, va_list ap)
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	int	count;
+	int		count;
 
 	va_start(ap, format);
 	count = 0;

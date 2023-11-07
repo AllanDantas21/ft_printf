@@ -1,7 +1,8 @@
 #include "ft_printf.h"
+
 static int	check_negative(long *value)
 {
-	if(*value < 0)
+	if (*value < 0)
 	{
 		*value = -*value;
 		return (1);
@@ -9,7 +10,7 @@ static int	check_negative(long *value)
 	return (0);
 }
 
-char	*itoa_base(int n, int base, char* chr)
+char	*itoa_base(int n, int base, char *chr)
 {
 	char	*str;
 	long	nb;

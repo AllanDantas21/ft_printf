@@ -1,25 +1,25 @@
 #include "ft_printf.h"
 
-static int      sizenum_base_u(unsigned long long n, int base)
+static int	sizenum_base_u(unsigned long long n, int base)
 {
-        int     count;
+	int	count;
 
-        count = 0;
-        if (n == 0)
-                return (1);
-        while (n > 0)
-        {
-                count++;
-                n = n / base;
-        }
-        return (count);
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		count++;
+		n = n / base;
+	}
+	return (count);
 }
 
-char	*utoa_base(unsigned long long n, int base, char* chr)
+char	*utoa_base(unsigned long long n, int base, char *chr)
 {
 	char		*str;
 	unsigned long	nb;
-	int		len;
+	int			len;
 
 	nb = (unsigned long long)n;
 	len = sizenum_base_u(nb, base);

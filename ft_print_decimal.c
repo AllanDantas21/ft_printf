@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
 int	print_decimal(int decimal)
-{	
-	int	count;
+{
+	int		count;
 	char	*str;
 
 	count = 0;

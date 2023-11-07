@@ -2,7 +2,7 @@
 
 int	print_string(char *str)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
 	if (!str)
