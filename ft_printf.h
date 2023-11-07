@@ -6,7 +6,6 @@
 
 int	ft_printf(const char *format, ...);
 int     print_decimal(int decimal);
-int     print_integer(int integer);
 int	print_char(char c);
 int	print_string(char *str);
 int     print_percent(void);

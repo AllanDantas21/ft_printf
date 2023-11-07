@@ -5,7 +5,7 @@ SRCS = ft_print_char.c ft_printf.c \
        ft_print_decimal.c ft_print_string.c \
        ft_print_percent.c ft_itoa_base.c main.c \
        ft_sizenum.c ft_print_hexa.c ft_utoa_base.c \
-       ft_print_unsigned.c ft_print_integer.c ft_print_address.c 
+       ft_print_unsigned.c ft_print_address.c 
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
 
