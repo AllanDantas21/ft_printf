@@ -1,4 +1,13 @@
 #include "ft_printf.h"
+static int	check_negative(long *value)
+{
+	if(*value < 0)
+	{
+		*value = -*value;
+		return (1);
+	}
+	return (0);
+}
 
 char	*itoa_base(int n, int base, char* chr)
 {
@@ -8,16 +17,11 @@ char	*itoa_base(int n, int base, char* chr)
 	int		len;
 
 	nb = n;
-	sign = 0;
 	len = sizenum_base(nb, base);
-	if (nb < 0)
-	{
-		sign = 1;
-		nb = -nb;
-	}
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
+	sign = check_negative(&nb);
 	str[len] = '\0';
 	while (len--)
 	{
