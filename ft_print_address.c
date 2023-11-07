@@ -1,17 +1,21 @@
 #include "ft_printf.h"
 
+static int print_error(void)
+{
+	int	error;
+
+	error = print_string("(nil)");
+	return (error);
+}
+
 int	print_address(void *p)
 {
 	int			counter;
-	int			error;
 	char		*str;
 	unsigned long long	adress;
 
 	if (!p)
-	{
-		error = print_string("(nil)");
-		return (error);
-	}
+		return(print_error());
 	counter = 0;
 	adress = (unsigned long long)p;
 	counter += print_string("0x");
