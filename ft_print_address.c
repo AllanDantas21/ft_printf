@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int print_error(void)
+static int	print_error(void)
 {
 	int	error;
 
