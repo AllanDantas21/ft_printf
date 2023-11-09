@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/07 20:49:04 by aldantas          #+#    #+#             */
+/*   Updated: 2023/11/07 20:50:34 by aldantas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ft_printf.h"
 
-static int     sizenum_base(long n, int base)
+static int	sizenum_base(long n, int base)
 {
-	int     count;
+	int	count;
 
 	count = 0;
 	if (n < 0)

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 08:18:58 by aldantas          #+#    #+#             */
+/*   Updated: 2023/11/09 08:19:29 by aldantas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ft_printf.h"
 
 static int	sizenum_base_u(unsigned long long n, int base)
@@ -17,9 +28,9 @@ static int	sizenum_base_u(unsigned long long n, int base)
 
 char	*utoa_base(unsigned long long n, int base, char *chr)
 {
-	char		*str;
-	unsigned long	nb;
-	int			len;
+	char				*str;
+	unsigned long long	nb;
+	int					len;
 
 	nb = (unsigned long long)n;
 	len = sizenum_base_u(nb, base);
