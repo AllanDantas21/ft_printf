@@ -6,7 +6,7 @@
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 08:15:12 by aldantas          #+#    #+#             */
-/*   Updated: 2023/11/09 08:15:55 by aldantas         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:21:48 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -44,7 +44,7 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	while (*format != '\0')
 	{
-		if (*format == '%')
+		if (*format == '%' && is_flag(*format + 1))
 		{
 			format++;
 			count += print_fmt(*format, ap);
