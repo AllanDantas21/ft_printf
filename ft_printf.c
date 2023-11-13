@@ -6,7 +6,7 @@
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 08:15:12 by aldantas          #+#    #+#             */
-/*   Updated: 2023/11/13 16:21:48 by aldantas         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:13:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -18,20 +18,25 @@ static int	print_fmt(char arg, va_list ap)
 	count = 0;
 	if (arg == 'c')
 		count += print_char(va_arg(ap, int));
-	if (arg == 'd' || arg == 'i')
+	else if (arg == 'd' || arg == 'i')
 		count += print_decimal(va_arg(ap, signed int));
-	if (arg == 's')
+	else if (arg == 's')
 		count += print_string(va_arg(ap, char *));
-	if (arg == 'p')
+	else if (arg == 'p')
 		count += print_address(va_arg(ap, void *));
-	if (arg == 'u')
+	else if (arg == 'u')
 		count += print_unsigned(va_arg(ap, unsigned int));
-	if (arg == 'x')
+	else if (arg == 'x')
 		count += print_hexa(va_arg(ap, unsigned int));
-	if (arg == 'X')
+	else if (arg == 'X')
 		count += print_hexa_upper(va_arg(ap, unsigned int));
-	if (arg == '%')
+	else if (arg == '%')
 		count += print_percent();
+	else
+	{
+		write(1, "%", 1);
+		write(1, &arg, 1);
+	}
 	return (count);
 }
 
@@ -44,7 +49,7 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	while (*format != '\0')
 	{
-		if (*format == '%' && is_flag(*format + 1))
+		if (*format == '%')
 		{
 			format++;
 			count += print_fmt(*format, ap);
