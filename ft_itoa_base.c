@@ -11,56 +11,71 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static int	sizenum_base(long n, int base)
+size_t	ft_strlen(const char *s)
 {
-	int	count;
+	size_t	len;
 
-	count = 0;
-	if (n < 0)
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
+}
+
+static size_t	sizenum_base(unsigned long long n, char *base)
+{
+	size_t	len;
+	unsigned long long baselen;
+
+	len = 1;
+	baselen = ft_strlen(base);
+	while(n >= baselen)
 	{
-		n = -n;
-		count++;
+		n /= baselen;
+		len++;
 	}
-	else if (n == 0)
-		return (1);
+	return (len);
+}
+
+static void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
 	while (n > 0)
 	{
-		count++;
-		n = n / base;
+		*ptr = 0;
+		ptr++;
+		n--;
 	}
-	return (count);
 }
 
-static int	check_negative(long *value)
+static void	*ft_calloc(size_t count, size_t size)
 {
-	if (*value < 0)
-	{
-		*value = -*value;
-		return (1);
-	}
-	return (0);
+	void	*ptr;
+
+	ptr = malloc(size * count);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }
 
-char	*itoa_base(int n, int base, char *chr)
+char	*itoa_base(unsigned long long n, char *base)
 {
 	char	*str;
-	long	nb;
-	int		sign;
 	int		len;
+	int		baselen;
 
-	nb = n;
-	len = sizenum_base(nb, base);
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	len = sizenum_base(n, base);
+	baselen = ft_strlen(base);
+	str = ft_calloc((len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	sign = check_negative(&nb);
-	str[len] = '\0';
-	while (len--)
-	{
-		str[len] = chr[(nb % base)];
-		nb /= base;
+	while (len)
+	{	
+		len--;
+		str[len] = base[(n % baselen)];
+		n /= baselen;
 	}
-	if (sign == 1)
-		str[0] = '-';
 	return (str);
 }

@@ -19,6 +19,14 @@ static int	print_error(void)
 	return (error);
 }
 
+static int	print_preceding_address(char *str)
+{
+	int	counter;
+
+	counter = print_string(str);
+	return (counter);
+}
+
 int	print_address(void *p)
 {
 	int					counter;
@@ -27,10 +35,9 @@ int	print_address(void *p)
 
 	if (!p)
 		return (print_error());
-	counter = 0;
-	adress = (unsigned long long)p;
-	counter += print_string("0x");
-	str = utoa_base(adress, 16, "0123456789abcdef");
+	adress = (unsigned long)p;
+	counter = print_preceding_address("0x");
+	str = itoa_base(adress, HEX_LOW);
 	counter += print_string(str);
 	free(str);
 	return (counter);

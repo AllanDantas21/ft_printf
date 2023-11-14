@@ -11,13 +11,27 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	print_decimal(int decimal)
+static int	handle_negative(signed long *value)
+{
+	int	counter;
+
+	counter = 0;
+	if (*value < 0)
+	{
+		ft_putchar('-');
+		*value *= -1;
+		counter++;
+	}
+	return (counter);
+}
+
+int	print_decimal(signed long value)
 {
 	int		counter;
 	char	*str;
 
-	counter = 0;
-	str = itoa_base(decimal, 10, "0123456789");
+	counter = handle_negative(&value);
+	str = itoa_base(value, "0123456789");
 	counter += print_string(str);
 	free(str);
 	return (counter);

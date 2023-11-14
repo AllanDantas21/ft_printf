@@ -11,25 +11,13 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	print_hexa(unsigned int value)
+int	print_hexa(unsigned int value, char *base)
 {
 	int		counter;
 	char	*str;
 
 	counter = 0;
-	str = utoa_base(value, 16, "0123456789abcdef");
-	counter += print_string(str);
-	free(str);
-	return (counter);
-}
-
-int	print_hexa_upper(unsigned int value)
-{
-	int		counter;
-	char	*str;
-
-	counter = 0;
-	str = utoa_base(value, 16, "0123456789ABCDEF");
+	str = itoa_base(value, base);
 	counter += print_string(str);
 	free(str);
 	return (counter);

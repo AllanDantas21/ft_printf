@@ -11,14 +11,24 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
+int	ft_putchar(int c)
+{
+	return (write(1, &c, 1));
+}
+
 int	print_string(char *str)
 {
 	int	counter;
-
+	int	i;
+	
+	i = 0;
 	counter = 0;
 	if (!str)
-		str = "(null)";
-	while (str[counter] != '\0')
-		write(1, &str[counter++], 1);
+		return(write(1, "(null)", 6));
+	while (str[i] != '\0')
+	{
+		counter += ft_putchar(str[i]);
+		i++;
+	}
 	return (counter);
 }
