@@ -7,22 +7,20 @@ SRCS = ft_print_char.c ft_printf.c \
        ft_print_hexa.c ft_utoa_base.c ft_is_argument.c\
        ft_print_unsigned.c ft_print_address.c 
 OBJS = $(SRCS:.c=.o)
+	
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
-
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean name
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re
