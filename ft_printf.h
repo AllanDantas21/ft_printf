@@ -26,5 +26,6 @@ int		print_unsigned(unsigned long n);
 int		print_address(void *p);
 char	*utoa_base(unsigned long long n, int base, char *chr);
 char	*itoa_base(int n, int base, char *chr);
+int	    is_argument(int c);
 
 #endif

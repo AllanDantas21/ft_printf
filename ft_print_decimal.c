@@ -13,12 +13,12 @@
 
 int	print_decimal(int decimal)
 {
-	int		count;
+	int		counter;
 	char	*str;
 
-	count = 0;
+	counter = 0;
 	str = itoa_base(decimal, 10, "0123456789");
 	count += print_string(str);
 	free(str);
-	return (count);
+	return (counter);
 }

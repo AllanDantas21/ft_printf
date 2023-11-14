@@ -15,6 +15,7 @@ int	print_char(char c)
 {
 	int	counter;
 
-	counter = write(1, &c, 1);
-	return (counter);
+	counter = 0;
+	write(1, &c, 1);
+	return (counter + 1);
 }
