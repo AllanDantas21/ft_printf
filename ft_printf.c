@@ -17,21 +17,21 @@ static int	print_format(int arg, va_list ap)
 
 	count = 0;
 	if (arg == 'c')
-		count += print_char(va_arg(ap, int));
+		count = print_char(va_arg(ap, int));
 	else if (arg == 's')
-		count += print_string(va_arg(ap, char *));
+		count = print_string(va_arg(ap, char *));
 	else if (arg == 'p')
-		count += print_address(va_arg(ap, void *));
+		count = print_address(va_arg(ap, void *));
 	else if (arg == 'd' || arg == 'i')
-		count += print_decimal(va_arg(ap, signed int));
+		count = print_decimal(va_arg(ap, signed int));
 	else if (arg == 'u')
-		count += print_unsigned(va_arg(ap, unsigned int)); 
+		count = print_unsigned(va_arg(ap, unsigned int)); 
 	else if (arg == 'x')
-		count += print_hexa(va_arg(ap, unsigned int));
+		count = print_hexa(va_arg(ap, unsigned int));
 	else if (arg == 'X')
-		count += print_hexa_upper(va_arg(ap, unsigned int));
+		count = print_hexa_upper(va_arg(ap, unsigned int));
 	else if (arg == '%')
-		count += print_percent();
+		count = print_percent();
 	return (count);
 }
 
