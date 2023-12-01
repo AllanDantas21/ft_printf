@@ -6,39 +6,28 @@
 /*   By: aldantas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 08:20:12 by aldantas          #+#    #+#             */
-/*   Updated: 2023/11/09 08:20:39 by aldantas         ###   ########.fr       */
+/*   Updated: 2023/11/16 06:06:19 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-static int	print_error(void)
-{
-	int	error;
+#include "../ft_printf.h"
 
-	error = print_string("(nil)");
-	return (error);
-}
-
-static int	print_preceding_address(char *str)
-{
-	int	counter;
-
-	counter = print_string(str);
-	return (counter);
-}
-
-int	print_address(void *p)
+int	ft_print_address(void *pointer)
 {
 	int					counter;
 	char				*str;
-	unsigned long long	adress;
+	unsigned long long	address;
 
-	if (!p)
-		return (print_error());
-	adress = (unsigned long)p;
-	counter = print_preceding_address("0x");
-	str = itoa_base(adress, HEX_LOW);
-	counter += print_string(str);
+	counter = 0;
+	address = (unsigned long long)pointer;
+	if (!pointer)
+	{
+		counter = ft_print_string("(nil)");
+		return (counter);
+	}
+	str = utoa_base(address, 16, "0123456789abcdef");
+	counter += ft_print_string("0x");
+	counter += ft_print_string(str);
 	free(str);
 	return (counter);
 }

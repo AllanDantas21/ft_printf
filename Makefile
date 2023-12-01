@@ -1,26 +1,24 @@
+SRC =  ft_printf.c ./src/ft_itoa.c ./src/ft_print_address.c ./src/ft_print_char.c ./src/ft_print_decimal.c ./src/ft_print_hexa.c ./src/ft_print_string.c ./src/ft_print_unsigned.c \
+	./src/ft_utoa_base.c
+
 NAME = libftprintf.a
+OBJ = $(SRC:.c=.o)
 CC = cc
+RM = rm -rf
+ARC = ar -rcs
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_printf.c \
-       ft_print_decimal.c ft_print_string.c \
-       ft_itoa_base.c \
-       ft_print_hexa.c ft_is_argument.c\
-       ft_print_unsigned.c ft_print_address.c 
-OBJS = $(SRCS:.c=.o)
-	
-RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	$(ARC) $(NAME) $(OBJ)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re
